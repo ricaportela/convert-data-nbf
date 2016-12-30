@@ -9,7 +9,7 @@ def change_date(date, op, value):
 
     # transformar tudo em minutos
     # converter horas em minutos totais
-    minutosTotais = (int(horaIni) * 60) + int(minuIni) + minutosEnt
+    minutosTotais = (int(horaIni) * 60) + int(minuIni) + value
     print("Total de Minutos: ", minutosTotais)
 
     # 5415 / 60 minutos = 90.25 => separar inteiro de casas decimais 0.25 * 60  = 15
