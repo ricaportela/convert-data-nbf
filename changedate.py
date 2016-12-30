@@ -1,7 +1,7 @@
 """ Calcular Data a partir de uma quantidade de minutos """
 
 
-def alterar_data(dataEnt, op, minutosEnt):
+def change_date(dataEnt, op, minutosEnt):
     """ Calcular nova data """
     dataEnt, horaEnt = dataEnt.split(" ", 2)
     diaIni, mesIni, anoIni = dataEnt.split("/", 3)
@@ -39,5 +39,5 @@ def alterar_data(dataEnt, op, minutosEnt):
 
 
 if __name__ == ("__main__"):
-    alterar_data("31/12/2016 23:35", "+", 25)
+    change_date("31/12/2016 23:35", "+", 200)
 
