@@ -33,10 +33,11 @@ def alterar_data(dataEnt, op, minutosEnt):
     minutosHora = xtotal_minutos * 24
 
     print(int(xtotal_dias), " Dias", int(minutosHora), " horas", int(resto_minutos), " minutos")
-    data_alterada = '01/01/2012 12:00'
-    print(data_alterada)
+
+    # data_alterada = '01/01/2012 12:00' essa data sera calculada
+    # print(data_alterada)
 
 
 if __name__ == ("__main__"):
-    alterar_data("31/12/2016 23:35", "+", 4000)
+    alterar_data("31/12/2016 23:35", "+", 25)
 
