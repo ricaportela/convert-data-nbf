@@ -1,34 +1,40 @@
 """ Calcular Data a partir de uma quantidade de minutos """
 
 
-def alterar_data(xdataEnt, xop, xminutosEnt):
+def alterar_data(dataEnt, op, minutosEnt):
     """ Calcular nova data """
-    dataEnt, horaEnt = xdataEnt.split(" ", 2)
-    diaEnt, mesEnt, anoEnt = xdataEnt.split("/", 3)
-    horaEnt, minuEnt = horaEnt.split(":", 2)
+    dataEnt, horaEnt = dataEnt.split(" ", 2)
+    diaIni, mesIni, anoIni = dataEnt.split("/", 3)
+    horaIni, minuIni = horaEnt.split(":", 2)
 
     # transformar tudo em minutos
     # converter horas em minutos totais
-    minutosTotais = (int(horaEnt) * 60) + int(minuEnt) + xminutosEnt
+    minutosTotais = (int(horaIni) * 60) + int(minuIni) + minutosEnt
+    print("Total de Minutos: ", minutosTotais)
 
     # 5415 / 60 minutos = 90.25 => separar inteiro de casas decimais 0.25 * 60  = 15
-    # HORAS_CONV_MINUTOS = MIN_TOT_E / 60
+    horas_minutos_conv = minutosTotais / 60
+    print(int(horas_minutos_conv))
 
     # 90h e 15 min
-    # I, D = divmod(HORAS_CONV_MINUTOS, 1)
-    # RESTO_MINUTOS = D * 60
+    i, d = divmod(horas_minutos_conv, 1)
+    resto_minutos = d * 60
+    print(int(resto_minutos))
 
     # 90h / 24h = 3.75 => separar inteiro de casas decimais = 0.75 / 24
-    # TOTAL_DIAS = QTDE_TOTAL_HORAS / 24
-
-    # I, D = divmod(TOTAL_DIAS, 1)
+    total_dias = horas_minutos_conv / 24
+    print(total_dias)
+    i, d = divmod(total_dias, 1)
+    xtotal_dias = i
+    xtotal_minutos = d
+    print("Total Dias", int(xtotal_dias))
 
     # 3d 3.75 (0.75 * 24)  = 18 h
-    # TOTAL_HORAS2 = D * 24
+    minutosHora = xtotal_minutos * 24
 
-    # print(int(I), " Dias", int(TOTAL_HORAS2), " horas", int(TOTAL_MINUTOS), " minutos")
-    print("Total de Minutos: ", minutosTotais)
-    return minutosTotais
+    print(int(xtotal_dias), " Dias", int(minutosHora), " horas", int(resto_minutos), " minutos")
+    data_alterada = '01/01/2012 12:00'
+    print(data_alterada)
 
 
 if __name__ == ("__main__"):
