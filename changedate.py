@@ -34,17 +34,17 @@ def change_date(date, op, value):
 
     print(int(xtotal_dias), " Dias", int(minutosHora), " horas", int(resto_minutos), " minutos")
 
-    diaIni = int(diaIni) + int(xtotal_dias)
+    print(int(xtotal_dias))
     if diaIni > 30:
-       mesIni = int(mesIni) +  1
-       diaIni = diaIni - 30
+        mesIni = int(mesIni) + 1
+        diaIni = diaIni - 30
 
-       if mesIni > 12:
-          mesIni = 1
-       else:
-          mesIni += 1
-    
-    dataSaida = str(int(diaIni)) + "/" + str(mesIni) + "/" + str(anoIni) + " " + str(int(minutosHora)) + ":" + str(int(resto_minutos))
+        if mesIni > 12:
+            mesIni = 1
+        else:
+            mesIni += 1
+
+    dataSaida = format(diaIni) + "/" + format(int(mesIni)) + "/" + format(anoIni) + " " + format(int(minutosHora)) + ":" + format(int(resto_minutos))
     print(dataSaida)
     
 
