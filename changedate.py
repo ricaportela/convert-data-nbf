@@ -1,9 +1,9 @@
 """ Calcular Data a partir de uma quantidade de minutos """
 
 
-def change_date(dataEnt, op, minutosEnt):
+def change_date(date, op, value):
     """ Calcular nova data """
-    dataEnt, horaEnt = dataEnt.split(" ", 2)
+    dataEnt, horaEnt = date.split(" ", 2)
     diaIni, mesIni, anoIni = dataEnt.split("/", 3)
     horaIni, minuIni = horaEnt.split(":", 2)
 
