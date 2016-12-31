@@ -8,6 +8,6 @@ def juliantogreg (jd, yr, mo, dy):
     dy = e - int((153*m+2)/5) + 1
     mo = m + 3 - 12*int(m/10)
     yr = 100*b + d - 4800 + int(m/10)
-    print(yr, "/", mo, "/", dy)
+    return (yr, mo, dy)
 
 

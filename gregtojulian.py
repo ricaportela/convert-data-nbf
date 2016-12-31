@@ -9,7 +9,6 @@ def gregtojulian (yr, mo, dy, qty_of_days, op):
         g2jd = g2jd + qty_of_days
     else:
         g2jd = g2jd - qty_of_days
-    print("Greg to Julian: ", g2jd)
     return g2jd
 
 

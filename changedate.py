@@ -2,6 +2,7 @@
 from gregtojulian import gregtojulian
 from juliantogreg import juliantogreg
 import datetime
+import sys
 
 
 def change_date(date, op, value):
@@ -12,7 +13,7 @@ def change_date(date, op, value):
     # convert all to minutes
     # convert hours in minutes to adding in total minutes
     minutosTotais = (int(horaIni) * 60) + int(minuIni) + value
-    print("Total de Minutos: ", minutosTotais)
+    # print("Total de Minutos: ", minutosTotais)
     # 5415 / 60 minutos = 90.25 => separate integer from decimal places 0.25 * 60  = 15
     horas_minutos_conv = minutosTotais / 60
     # 90h e 15 min - i = integer part and d = decimal part
@@ -26,19 +27,19 @@ def change_date(date, op, value):
     # 3d 3.75 (0.75 * 24)  = 18 h
     minutosHora = xtotal_minutos * 24
     print(int(xtotal_dias), " Dias", int(minutosHora), " horas", int(resto_minutos), " minutos")
-    
+
     # convert Greg Date to Julian Date expressed by integer number
-    gregtojulian(int(anoIni), int(mesIni), int(diaIni), int(xtotal_dias), op)
+    g2jd = gregtojulian(int(anoIni), int(mesIni), int(diaIni), int(xtotal_dias), op)
 
     # convert Julian Date to Greg Date
     today = datetime.date.today()
-    juliantogreg(2457764, today.year, today.month, today.day)
-    
-    dataSaida = format(diaIni) + "/" + format(int(mesIni)) + "/" + format(anoIni) + " " + format(int(minutosHora)) + ":" + format(int(resto_minutos))
+    yr, mo, dy = juliantogreg(g2jd, today.year, today.month, today.day)
+
+    dataSaida = format(int(dy)) + "/" + format(int(mo)) + "/" + format(int(yr)) + " " + format(int(minutosHora)) + ":" + format(int(resto_minutos))
     print(dataSaida)
     
 
 
 if __name__ == ("__main__"):
-    change_date("01/03/2010 23:35", "+", 26)
+    change_date(sys.argv[0], sys.argv[1], sys.argv[2])
 
