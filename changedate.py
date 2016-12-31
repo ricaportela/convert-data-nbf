@@ -28,7 +28,7 @@ def change_date(date, op, value):
     print(int(xtotal_dias), " Dias", int(minutosHora), " horas", int(resto_minutos), " minutos")
     
     # convert Greg Date to Julian Date expressed by integer number
-    gregtojulian(int(anoIni), int(mesIni), int(diaIni), int(xtotal_dias))
+    gregtojulian(int(anoIni), int(mesIni), int(diaIni), int(xtotal_dias), op)
 
     # convert Julian Date to Greg Date
     today = datetime.date.today()
