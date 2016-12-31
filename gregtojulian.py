@@ -1,5 +1,8 @@
 def gregtojulian (yr, mo, dy, qty_of_days, op):
-    """ Receive the date from parameter """
+    """ Receive the date from parameter 
+    name: Ricardo Portela da Silva
+    date: 31/12/2016
+    """
     juliandays = 0
     a = int((14-mo)/12)
     y = yr + 4800 - a

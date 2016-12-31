@@ -1,4 +1,8 @@
 def juliantogreg (jd, yr, mo, dy):
+    """ Receive the date from parameter 
+    name: Ricardo Portela da Silva
+    date: 31/12/2016
+    """
     a = jd + 32044
     b = int((4*a+3)/146097)
     c = a - int((146097*b)/4)
