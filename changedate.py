@@ -1,45 +1,44 @@
-""" Calcular Data a partir de uma quantidade de minutos """
+""" Calcute a new date from value of minutes """
 from gregtojulian import gregtojulian
 from juliantogreg import juliantogreg
 import datetime
 import sys
 
-
 def change_date(date, op, value):
-    """ Calcular nova data """
-    dataEnt, horaEnt = date.split(" ", 2)
-    diaIni, mesIni, anoIni = dataEnt.split("/", 3)
-    horaIni, minuIni = horaEnt.split(":", 2)
+    """ calculate new date """
+    dateEnt, hourEnt = date.split(" ", 2)
+    dayIni, monthIni, yearIni = dateEnt.split("/", 3)
+    hourIni, minuIni = hourEnt.split(":", 2)
     # convert all to minutes
     # convert hours in minutes to adding in total minutes
-    minutosTotais = (int(horaIni) * 60) + int(minuIni) + value
-    # print("Total de Minutos: ", minutosTotais)
+    minutesTotal = (int(hourIni) * 60) + int(minuIni) + value
+    # print("Total de Minutos: ", minutesTotal)
     # 5415 / 60 minutos = 90.25 => separate integer from decimal places 0.25 * 60  = 15
-    horas_minutos_conv = minutosTotais / 60
+    hours_minutes_conv = minutesTotal / 60
     # 90h e 15 min - i = integer part and d = decimal part
-    i, d = divmod(horas_minutos_conv, 1)
+    i, d = divmod(hours_minutes_conv, 1)
     resto_minutos = d * 60
     # 90h / 24h = 3.75 => separate integer from decimal places = 0.75 / 24
-    total_dias = horas_minutos_conv / 24
+    total_dias = hours_minutes_conv / 24
     i, d = divmod(total_dias, 1)
-    xtotal_dias = i
-    xtotal_minutos = d
+    xtotal_days = i
+    xtotal_minutes = d
     # 3d 3.75 (0.75 * 24)  = 18 h
-    minutosHora = xtotal_minutos * 24
-    print(int(xtotal_dias), " Dias", int(minutosHora), " horas", int(resto_minutos), " minutos")
+    minutesHour = xtotal_minutes * 24
+    print(int(xtotal_days), " Dias", int(minutesHour), " horas", int(resto_minutos), " minutos")
 
     # convert Greg Date to Julian Date expressed by integer number
-    g2jd = gregtojulian(int(anoIni), int(mesIni), int(diaIni), int(xtotal_dias), op)
+    g2jd = gregtojulian(int(yearIni), int(monthIni), int(dayIni), int(xtotal_days), op)
 
     # convert Julian Date to Greg Date
     today = datetime.date.today()
     yr, mo, dy = juliantogreg(g2jd, today.year, today.month, today.day)
 
-    dataSaida = format(int(dy)) + "/" + format(int(mo)) + "/" + format(int(yr)) + " " + format(int(minutosHora)) + ":" + format(int(resto_minutos))
-    print(dataSaida)
+    dateOutput = format(int(dy)) + "/" + format(int(mo)) + "/" + format(int(yr)) + " " + format(int(minutesHour)) + ":" + format(int(resto_minutos))
+    print(dateOutput)
     
 
-
 if __name__ == ("__main__"):
-    change_date(sys.argv[0], sys.argv[1], sys.argv[2])
+     change_date("01/01/2010 23:35", "+", 4000)
+#    change_date(sys.argv[1], sys.argv[2], sys.argv[3])
 
