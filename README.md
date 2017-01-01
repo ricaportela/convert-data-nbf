@@ -32,3 +32,7 @@ Example:
 ========
 change_date("01/03/2010 23:00", '+', 4000) = "04/03/2010 17:40"
 
+References
+==========
+http://quasar.as.utexas.edu/BillInfo/JulianDatesG.html
+
